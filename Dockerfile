@@ -19,7 +19,7 @@ COPY . .
 COPY servers /app/servers
 COPY workers /app/workers
 
-RUN chmod +x run.sh
+RUN chmod +x /app/run.sh
 
 RUN crontab crontab
 
