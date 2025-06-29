@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 source /app/.env
-python /app/workers/price_updater.py
+/usr/local/bin/python /app/workers/price_updater.py
