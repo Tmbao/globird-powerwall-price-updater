@@ -74,13 +74,13 @@ class PowerwallPriceUpdater:
                     f"Globird price not found for time {current_time.isoformat()}"
                 )
 
-            buy_price = globird_price.buy_per_kwh
-            final_sell_price = (
-                globird_price.sell_per_kwh
-            )  # Default to Globird sell price
+            # Default to Globird sell price
+            final_buy_price = globird_price.buy_per_kwh
+            final_sell_price = globird_price.sell_per_kwh
 
             if amber_price and amber_price.sell_per_kwh >= sell_threshold:
                 final_sell_price = 1
+                final_buy_price += 1
                 # Use Amber's price type if its sell price is used
                 price_type = amber_price.price_type
             else:
@@ -91,7 +91,7 @@ class PowerwallPriceUpdater:
                 SimplePrice(
                     start_time=current_time,
                     period=timedelta(minutes=resolution_minutes),
-                    buy_per_kwh=buy_price,
+                    buy_per_kwh=final_buy_price,
                     sell_per_kwh=final_sell_price,
                     price_type=price_type,
                 )

@@ -64,8 +64,10 @@ class TeslaClient:
         energy_site_id = self.find_energy_site_id(products)
         logger.debug(f"Energy site ID: {energy_site_id}")
 
-        self.post_time_of_use_settings(time_of_use_settings, energy_site_id)
-        logger.info("Successfully updated time of use settings.")
+        updated_response = self.post_time_of_use_settings(
+            time_of_use_settings, energy_site_id
+        )
+        logger.info(f"Updated time of use settings: {updated_response}")
 
     def find_energy_site_id(self, products: list) -> str:
         for product in products:

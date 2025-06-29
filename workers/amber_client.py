@@ -6,12 +6,7 @@ from datetime import datetime, timedelta
 from dateutil import tz
 from app_logger import logger
 from simple_price import PriceType, SimplePrice
-from amberelectric.models.interval import (
-    Interval,
-    ActualInterval,
-    ForecastInterval,
-    CurrentInterval,
-)
+from amberelectric.models.interval import Interval
 
 
 class AmberClient:
