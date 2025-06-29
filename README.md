@@ -1,6 +1,6 @@
-# TSLA Powerwall Price Updater
+# Globird Powerwall Price Updater
 
-This project aims to update the Tesla Powerwall's price settings based on electricity prices.
+This project aims to update the Tesla Powerwall's price settings to take advantage of Critical Events. Globird Energy does not yet support Tesla Powerwall so this project is a workaround.
 
 ## Setup Instructions
 
