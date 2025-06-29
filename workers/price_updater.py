@@ -38,7 +38,7 @@ class PowerwallPriceUpdater:
         globird_prices: List[SimplePrice] = self.globird_client.get_prices()
         amber_prices: List[SimplePrice] = self.amber_client.get_forecast()
 
-        logger.debug(
+        logger.info(
             f"Globird prices: {len(globird_prices)} entries, Amber prices: {len(amber_prices)} entries"
         )
         logger.debug(
