@@ -78,11 +78,12 @@ class PowerwallPriceUpdater:
             final_buy_price = globird_price.buy_per_kwh
             final_sell_price = globird_price.sell_per_kwh
 
-            if amber_price and amber_price.sell_per_kwh >= sell_threshold:
+            if amber_price and amber_price.sell_per_kwh > sell_threshold:
                 final_sell_price = 1
                 final_buy_price += 1
                 # Use Amber's price type if its sell price is used
                 price_type = amber_price.price_type
+                logger.info(f"Price spike detected at {current_time.strftime("%H%M")}: ")
             else:
                 # Otherwise use Globird's price type
                 price_type = globird_price.price_type

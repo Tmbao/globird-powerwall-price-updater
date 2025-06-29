@@ -66,8 +66,8 @@ class AmberClient:
                             tz=tz.tzlocal()
                         ),
                         period=timedelta(minutes=price_instance.duration),
-                        buy_per_kwh=price_instance.per_kwh,
-                        sell_per_kwh=price_instance.spot_per_kwh,
+                        buy_per_kwh=price_instance.per_kwh / 100.0,
+                        sell_per_kwh=price_instance.spot_per_kwh / 100.0,
                         price_type=price_instance.type,
                     )
                 )
