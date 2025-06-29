@@ -41,21 +41,21 @@ class PowerwallPriceUpdater:
         logger.info(
             f"Globird prices: {len(globird_prices)} entries, Amber prices: {len(amber_prices)} entries"
         )
-        logger.debug(
-            f"---\nGlobird prices: {globird_prices}\n---\nAmber prices: {amber_prices}\n---"
-        )
 
         if not globird_prices:
             logger.warning("No prices returned from Globird client.")
         if not amber_prices:
             logger.warning("No prices returned from Amber client.")
 
-        globird_prices_map: dict[datetime, SimplePrice] = {
-            p.start_time_time(): p for p in globird_prices
+        globird_prices_map: dict[str, SimplePrice] = {
+            p.start_time_time().strftime("%H%M"): p for p in globird_prices
         }
-        amber_prices_map: dict[datetime, SimplePrice] = {
-            p.start_time_time(): p for p in amber_prices
+        amber_prices_map: dict[str, SimplePrice] = {
+            p.start_time_time().strftime("%H%M"): p for p in amber_prices
         }
+        logger.debug(
+            f"---\nGlobird prices: {globird_prices_map}\n---\nAmber prices: {amber_prices_map}\n---"
+        )
 
         prices: List[SimplePrice] = []
         today = date.today()
@@ -66,8 +66,8 @@ class PowerwallPriceUpdater:
         sell_threshold = 1.5
 
         for _ in range(int(24 * 60 / resolution_minutes)):
-            globird_price = globird_prices_map.get(current_time)
-            amber_price = amber_prices_map.get(current_time)
+            globird_price = globird_prices_map.get(current_time.strftime("%H%M"))
+            amber_price = amber_prices_map.get(current_time.strftime("%H%M"))
 
             if not globird_price:
                 raise RuntimeError(
@@ -83,7 +83,9 @@ class PowerwallPriceUpdater:
                 final_buy_price += 1
                 # Use Amber's price type if its sell price is used
                 price_type = amber_price.price_type
-                logger.info(f"Price spike detected at {current_time.strftime("%H%M")}: ")
+                logger.info(
+                    f"Price spike detected at {current_time.strftime("%H%M")}: "
+                )
             else:
                 # Otherwise use Globird's price type
                 price_type = globird_price.price_type
