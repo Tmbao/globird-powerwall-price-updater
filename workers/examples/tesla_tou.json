@@ -1,0 +1,1330 @@
+2025-06-29 19: 41: 25,
+937 - DEBUG - Posting time of use settings: {
+  "tou_settings": {
+    "tariff_content_v2": {
+      "version": 1,
+      "monthly_minimum_bill": 0.0,
+      "min_applicable_demand": 0.0,
+      "max_applicable_demand": 0.0,
+      "monthly_charges": 0.0,
+      "utility": "Globird",
+      "code": "ZEROHERO",
+      "name": "Globird ZEROHERO VPP",
+      "currency": "USD",
+      "daily_charges": [
+        {
+          "name": "Daily Charge",
+          "amount": 1.1
+        }
+      ],
+      "daily_demand_charges": {},
+      "demand_charges": {
+        "ALL": {
+          "rates": {}
+        }
+      },
+      "energy_charges": {
+        "ALL": {
+          "rates": {
+            "0000": 0.31,
+            "0030": 0.31,
+            "0100": 0.31,
+            "0130": 0.31,
+            "0200": 0.31,
+            "0230": 0.31,
+            "0300": 0.31,
+            "0330": 0.31,
+            "0400": 0.31,
+            "0430": 0.31,
+            "0500": 0.31,
+            "0530": 0.31,
+            "0600": 0.31,
+            "0630": 0.31,
+            "0700": 0.31,
+            "0730": 0.31,
+            "0800": 0.31,
+            "0830": 0.31,
+            "0900": 0.31,
+            "0930": 0.31,
+            "1000": 0.31,
+            "1030": 0.31,
+            "1100": 0.0,
+            "1130": 0.0,
+            "1200": 0.0,
+            "1230": 0.0,
+            "1300": 0.0,
+            "1330": 0.0,
+            "1400": 0.31,
+            "1430": 0.31,
+            "1500": 0.31,
+            "1530": 0.31,
+            "1600": 0.46,
+            "1630": 0.46,
+            "1700": 0.46,
+            "1730": 0.46,
+            "1800": 4.0,
+            "1830": 4.0,
+            "1900": 4.0,
+            "1930": 4.0,
+            "2000": 0.46,
+            "2030": 0.46,
+            "2100": 0.46,
+            "2130": 0.46,
+            "2200": 0.46,
+            "2230": 0.46,
+            "2300": 0.31,
+            "2330": 0.31
+          }
+        }
+      },
+      "seasons": {
+        "ALL": {
+          "fromMonth": 1,
+          "fromDay": 1,
+          "toMonth": 12,
+          "toDay": 31,
+          "tou_periods": {
+            "0000": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 0,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 0,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0030": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 0,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 1,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0100": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 1,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 1,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0130": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 1,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 2,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0200": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 2,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 2,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0230": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 2,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 3,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0300": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 3,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 3,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0330": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 3,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 4,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0400": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 4,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 4,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0430": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 4,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 5,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0500": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 5,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 5,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0530": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 5,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 6,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0600": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 6,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 6,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0630": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 6,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 7,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0700": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 7,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 7,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0730": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 7,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 8,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0800": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 8,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 8,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0830": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 8,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 9,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "0900": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 9,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 9,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "0930": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 9,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 10,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1000": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 10,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 10,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1030": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 10,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 11,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1100": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 11,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 11,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1130": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 11,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 12,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1200": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 12,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 12,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1230": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 12,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 13,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1300": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 13,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 13,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1330": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 13,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 14,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1400": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 14,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 14,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1430": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 14,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 15,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1500": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 15,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 15,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1530": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 15,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 16,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1600": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 16,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 16,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1630": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 16,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 17,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1700": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 17,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 17,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1730": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 17,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 18,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1800": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 18,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 18,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1830": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 18,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 19,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "1900": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 19,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 19,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "1930": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 19,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 20,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "2000": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 20,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 20,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "2030": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 20,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 21,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "2100": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 21,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 21,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "2130": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 21,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 22,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "2200": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 22,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 22,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "2230": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 22,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 23,
+                  "toMinute": 0
+                }
+              ]
+            },
+            "2300": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 23,
+                  "fromMinute": 0,
+                  "toDayOfWeek": 6,
+                  "toHour": 23,
+                  "toMinute": 30
+                }
+              ]
+            },
+            "2330": {
+              "periods": [
+                {
+                  "fromDayOfWeek": 0,
+                  "fromHour": 23,
+                  "fromMinute": 30,
+                  "toDayOfWeek": 6,
+                  "toHour": 0,
+                  "toMinute": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "sell_tariff": {
+        "min_applicable_demand": 0.0,
+        "monthly_minimum_bill": 0.0,
+        "monthly_charges": 0.0,
+        "max_applicable_demand": 0.0,
+        "utility": "Globird",
+        "demand_charges": {
+          "ALL": {
+            "rates": {}
+          }
+        },
+        "daily_charges": [
+          {
+            "name": "Daily Charge",
+            "amount": 1.1
+          }
+        ],
+        "seasons": {
+          "ALL": {
+            "fromMonth": 1,
+            "fromDay": 1,
+            "toMonth": 12,
+            "toDay": 31,
+            "tou_periods": {
+              "0000": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 0,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 0,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0030": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 0,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 1,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0100": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 1,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 1,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0130": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 1,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 2,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0200": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 2,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 2,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0230": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 2,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 3,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0300": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 3,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 3,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0330": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 3,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 4,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0400": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 4,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 4,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0430": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 4,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 5,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0500": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 5,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 5,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0530": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 5,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 6,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0600": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 6,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 6,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0630": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 6,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 7,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0700": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 7,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 7,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0730": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 7,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 8,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0800": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 8,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 8,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0830": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 8,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 9,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "0900": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 9,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 9,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "0930": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 9,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 10,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1000": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 10,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 10,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1030": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 10,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 11,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1100": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 11,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 11,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1130": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 11,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 12,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1200": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 12,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 12,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1230": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 12,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 13,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1300": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 13,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 13,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1330": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 13,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 14,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1400": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 14,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 14,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1430": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 14,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 15,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1500": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 15,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 15,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1530": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 15,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 16,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1600": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 16,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 16,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1630": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 16,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 17,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1700": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 17,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 17,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1730": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 17,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 18,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1800": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 18,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 18,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1830": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 18,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 19,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "1900": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 19,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 19,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "1930": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 19,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 20,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "2000": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 20,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 20,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "2030": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 20,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 21,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "2100": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 21,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 21,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "2130": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 21,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 22,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "2200": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 22,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 22,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "2230": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 22,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 23,
+                    "toMinute": 0
+                  }
+                ]
+              },
+              "2300": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 23,
+                    "fromMinute": 0,
+                    "toDayOfWeek": 6,
+                    "toHour": 23,
+                    "toMinute": 30
+                  }
+                ]
+              },
+              "2330": {
+                "periods": [
+                  {
+                    "fromDayOfWeek": 0,
+                    "fromHour": 23,
+                    "fromMinute": 30,
+                    "toDayOfWeek": 6,
+                    "toHour": 0,
+                    "toMinute": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "code": "ZEROHERO",
+        "energy_charges": {
+          "ALL": {
+            "rates": {
+              "0000": 0.05,
+              "0030": 0.05,
+              "0100": 0.05,
+              "0130": 0.05,
+              "0200": 0.05,
+              "0230": 0.05,
+              "0300": 0.05,
+              "0330": 0.05,
+              "0400": 0.05,
+              "0430": 0.05,
+              "0500": 0.05,
+              "0530": 0.05,
+              "0600": 0.05,
+              "0630": 0.05,
+              "0700": 0.05,
+              "0730": 0.05,
+              "0800": 0.05,
+              "0830": 0.05,
+              "0900": 0.05,
+              "0930": 0.05,
+              "1000": 0.05,
+              "1030": 0.05,
+              "1100": 0.0,
+              "1130": 0.0,
+              "1200": 0.0,
+              "1230": 0.0,
+              "1300": 0.0,
+              "1330": 0.0,
+              "1400": 0.05,
+              "1430": 0.05,
+              "1500": 0.05,
+              "1530": 0.05,
+              "1600": 0.9,
+              "1630": 0.9,
+              "1700": 0.9,
+              "1730": 0.9,
+              "1800": 0.15,
+              "1830": 0.15,
+              "1900": 0.15,
+              "1930": 0.15,
+              "2000": 0.9,
+              "2030": 0.9,
+              "2100": 0.05,
+              "2130": 0.05,
+              "2200": 0.05,
+              "2230": 0.05,
+              "2300": 0.05,
+              "2330": 0.05
+            }
+          }
+        },
+        "daily_demand_charges": {},
+        "currency": "USD",
+        "name": "Globird ZEROHERO VPP"
+      }
+    }
+  }
+}

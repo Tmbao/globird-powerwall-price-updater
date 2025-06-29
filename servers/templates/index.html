@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coldzee Power Tesla OAuth</title>
+</head>
+
+<body>
+    <h1>Welcome to Coldzee Power </h1>
+    <button id="postRequestButton">Authenticate</button>
+
+    <script>
+        document.getElementById("postRequestButton").addEventListener("click", function () {
+            const CLIENT_ID = "{{ client_id }}";
+            const REDIRECT_URI = "{{ redirect_uri }}";
+            const STATE = "{{ state }}";
+            const authUrl = `https://fleet-auth.prd.vn.cloud.tesla.com/oauth2/v3/authorize?&client_id=${CLIENT_ID}&locale=en-US&prompt=login&redirect_uri=${REDIRECT_URI}&response_type=code&scope=openid%20energy_device_data%20energy_cmds%20offline_access&state=${STATE}`;
+
+            window.location.href = authUrl;
+        });
+    </script>
+</body>
+
+</html>
