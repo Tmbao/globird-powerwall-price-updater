@@ -63,7 +63,7 @@ class PowerwallPriceUpdater:
         resolution_minutes = int(os.environ.get("RESOLUTION", 5))
         if resolution_minutes not in [5, 30]:
             raise ValueError("RESOLUTION must be 5 or 30 minutes.")
-        sell_threshold = 1.5
+        sell_threshold = float(os.environ.get("SELL_THRESHOLD", 1.5))
 
         for _ in range(int(24 * 60 / resolution_minutes)):
             globird_price = globird_prices_map.get(current_time.strftime("%H%M"))
