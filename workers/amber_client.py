@@ -36,9 +36,13 @@ class AmberClient:
             if not simple_prices:
                 logger.warning("No forecast data available for the site.")
                 return []
-            # Filter out ActualInterval prices
+            now = datetime.now(tz=tz.tzlocal())
+            # Filter out ActualInterval prices and forcasted prices further than 24 hours
             forecasted_prices = [
-                price for price in simple_prices if price.price_type != PriceType.ACTUAL
+                price
+                for price in simple_prices
+                if price.price_type != PriceType.ACTUAL
+                and price.start_time < now + timedelta(days=1)
             ]
             return forecasted_prices
         except ApiException as e:
