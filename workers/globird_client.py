@@ -12,7 +12,7 @@ class GlobirdClient:
     A dummy client for Globird Electricity prices.
     Globird electricity prices are as follows:
      - Buy prices:
-        - From 6PM to 8PM: $AU4.00 per kWh
+        - From 6PM to 8PM: $AU1.50 per kWh
         - From 4PM to 11PM (outside of 6PM to 8PM): $AU0.46 per kWh
         - From 11AM to 2PM: $AU0.0 per kWh
         - Other times: $AU0.31 per kWh
@@ -29,7 +29,7 @@ class GlobirdClient:
 
     def _get_buy_price(self, time: datetime.time) -> float:
         if datetime.time(18, 0) <= time < datetime.time(20, 0):
-            return 4.00
+            return 1.50
         elif datetime.time(16, 0) <= time < datetime.time(23, 0):
             return 0.46
         elif datetime.time(11, 0) <= time < datetime.time(14, 0):
