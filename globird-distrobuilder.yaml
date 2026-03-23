@@ -79,13 +79,6 @@ actions:
       chmod +x /app/run.sh /app/lxc-services.sh /sbin/init
       ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
       : > /var/log/cron.log
-
-  - trigger: post-packages
-    action: |-
-      #!/bin/sh
-      set -eux
       python3 -m pip install --break-system-packages --no-cache-dir -r /app/requirements.txt
       crontab /app/crontab
-
-
 
