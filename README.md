@@ -72,6 +72,30 @@ Build a debug image that simply stays alive:
 docker build --build-arg LXC_INIT_MODE=sleep -t tsla-pw-price-updater:sleep .
 ```
 
+Example Proxmox CT creation command for a LAN-accessible container on `vmbr0`:
+
+```bash
+pct create 120 local:vztmpl/globird-price-updater.tar.xz \
+  --hostname globird-price \
+  --rootfs wdcdata:1.5 \
+  --memory 1024 \
+  --cores 1 \
+  --net0 name=eth0,bridge=vmbr0,ip=192.168.4.24/24,gw=192.168.4.1 \
+  --unprivileged 1 \
+  --start 1
+```
+
+This keeps the CT directly on the `192.168.4.0/24` LAN so it is reachable from the rest of the network without extra NAT or routing rules.
+
+You can also automate the build, upload, and CT recreation flow from WSL with:
+
+```bash
+./scripts/deploy-proxmox-ct.sh 192.168.4.16 192.168.4.24 120
+```
+
+The script rebuilds `build/globird-rootfs.tar.xz`, uploads it to Proxmox, destroys any existing CT with the same ID, and recreates it on `vmbr0`.
+
+
 In normal mode the container init script starts `lxc-services.sh` as a child process, waits on it as PID 1, starts the Flask OAuth server on port `9090`, starts cron in foreground mode, and keeps container logs in `/var/log/container-init.log`.
 
 The cron job defined in `crontab` runs `/app/run.sh`, which executes `workers/price_updater.py` and appends output to `/var/log/cron.log`.
@@ -116,6 +140,7 @@ pct start 121
 If you want a debug CT that always stays alive, edit `/etc/profile.d/globird-init-mode.sh` in the built rootfs or set `LXC_INIT_MODE=sleep` before starting `/sbin/init`.
 
 Note: the distrobuilder image does not require `.env` to be baked in. You can copy `/app/.env` into the CT after creation if you prefer to keep secrets out of the rootfs tarball.
+
 
 
 

@@ -7,7 +7,13 @@ ENV LXC_INIT_MODE=${LXC_INIT_MODE}
 ENV PYTHONUNBUFFERED=1
 
 # Install tzdata and set timezone to Australia/Sydney
-RUN apt-get update && apt-get install -y tzdata cron && \
+RUN apt-get update && apt-get install -y \
+    cron \
+    ifupdown \
+    iproute2 \
+    iputils-ping \
+    isc-dhcp-client \
+    tzdata && \
     ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime && \
     echo "Australia/Sydney" > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \

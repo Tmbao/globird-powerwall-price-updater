@@ -4,6 +4,11 @@ set -eu
 mkdir -p /app/auth /var/log
 : > /var/log/cron.log
 
+# Bring up the container interface when we are not using systemd as PID 1.
+if command -v ifup >/dev/null 2>&1; then
+  ifup eth0 2>/dev/null || true
+fi
+
 cleanup() {
   status=$?
   for pid in ${OAUTH_PID:-} ${CRON_PID:-}; do
@@ -36,4 +41,3 @@ while true; do
   done
   sleep 1
 done
-
