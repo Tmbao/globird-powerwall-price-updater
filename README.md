@@ -4,8 +4,6 @@ This project aims to update the Tesla Powerwall's price settings to take advanta
 
 ## Setup Instructions
 
-To run this project, follow these steps:
-
 ### 1. Clone the repository
 
 ```bash
@@ -13,86 +11,113 @@ git clone https://github.com/tmbao/globird-powerwall-price-updater/
 cd globird-powerwall-price-updater
 ```
 
-### 2. Create a virtual environment (recommended for local development)
+### 2. Create a virtual environment (optional for local development)
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
+### 3. Configure environment variables
 
-Create a `.env` file in the root directory of the project with the following content. These variables are crucial for connecting to Amber Electric and Tesla Powerwall APIs.
+Create a `.env` file in the root directory of the project with the required values:
 
-```
+```sh
 export AMBER_API_TOKEN="YOUR_AMBER_ELECTRIC_API_TOKEN"
-export RESOLUTION="30" # Example: "30" for 30-minute intervals, this value can only be either 5 or 30
+export RESOLUTION="30"
 export TESLA_CLIENT_ID="YOUR_TESLA_CLIENT_ID"
 export TESLA_CLIENT_SECRET="YOUR_TESLA_CLIENT_SECRET"
-export AUTH_DIR=/app/auth
+export AUTH_DIR="/app/auth"
+export SELL_THRESHOLD="1.2"
+```
 
-### 5. Public Domain and Tesla API Authentication
+### 4. Tesla API authentication callback
 
-A public domain is required for the Tesla API authentication callback. Please ensure you have a public domain configured. Follow the official Tesla API documentation for detailed authentication setup: [https://developer.tesla.com/docs/fleet-api/authentication/overview](https://developer.tesla.com/docs/fleet-api/authentication/overview). The `oauth_server.py` script in the `servers/` directory can serve as a starting point for implementing the authentication callback.
+A public domain is required for the Tesla API authentication callback. Follow the Tesla Fleet API authentication documentation and use `servers/oauth_server.py` as the callback service.
 
-### 6. Running the project (Local)
+### 5. Run locally
 
-Once set up, you can run the main script locally:
+Run the updater once:
 
 ```bash
 python workers/price_updater.py
 ```
 
-### 7. Running with Docker (Recommended for Deployment)
+Run the callback server:
 
-This project is designed to be run within a Docker container for easier deployment and management.
+```bash
+python servers/oauth_server.py
+```
 
-#### Build the Docker image
+## Docker / Proxmox deployment
+
+This image now uses `/sbin/init` as the container entrypoint so it works cleanly after Docker-to-LXC conversion for Proxmox.
+
+Build the normal image:
 
 ```bash
 docker build -t tsla-pw-price-updater .
 ```
 
-#### Run the Docker container
+Build a debug image that opens a shell as PID 1:
 
 ```bash
-docker run -d --name powerwall-updater --env-file ./.env tsla-pw-price-updater
+docker build --build-arg LXC_INIT_MODE=shell -t tsla-pw-price-updater:debug .
 ```
 
-This command will:
-- `-d`: Run the container in detached mode (in the background).
-- `--name powerwall-updater`: Assign a name to your container.
-- `--env-file ./.env`: Pass your environment variables from the `.env` file into the container.
+Build a debug image that simply stays alive:
 
-Inside the Docker container, the `run.sh` script executes the `price_updater.py` script, and `supervisord` manages the processes, including a scheduled cron job for regular updates.
+```bash
+docker build --build-arg LXC_INIT_MODE=sleep -t tsla-pw-price-updater:sleep .
+```
+
+In normal mode the container init script:
+- loads `/app/.env`
+- starts the Flask OAuth server on port `9090`
+- starts cron in foreground mode
+- keeps PID 1 alive while both services are healthy
+
+The cron job defined in `crontab` runs `/app/run.sh`, which executes `workers/price_updater.py` and appends output to `/var/log/cron.log`.
 
 ## Project Structure
 
-- `crontab`: Defines the cron job schedule for `price_updater.py`.
-- `Dockerfile`: Defines the Docker image for the application.
-- `requirements.txt`: Lists Python dependencies.
-- `run.sh`: Entrypoint script for the Docker container, executes `price_updater.py`.
-- `supervisord.conf`: Configuration for `supervisord` to manage processes within the Docker container.
-- `.env`: Contains environment variables (not committed to Git).
-- `servers/`: Contains server-side components.
-    - `oauth_server.py`: Handles OAuth authentication flow for Tesla API.
-    - `templates/`: HTML templates for the OAuth server.
-- `workers/`: Contains the core logic for price fetching and Powerwall updates.
-    - `amber_client.py`: Handles communication with the Amber Electric API.
-    - `app_logger.py`: Application logging configuration.
-    - `globird_client.py`: (If applicable) Client for Globird energy.
-    - `price_updater.py`: Main logic for fetching prices and updating Powerwall settings.
-    - `simple_price.py`: Defines the `SimplePrice` dataclass for price representation.
-    - `tesla_client.py`: Handles communication with the Tesla API.
-    - `tesla_tou_settings.py`: Logic for managing Tesla Time-of-Use (TOU) settings.
-    - `test_price_updater.py`: Unit tests for `price_updater.py`.
-    - `test_tesla_tou_settings.py`: Unit tests for `tesla_tou_settings.py`.
-    - `examples/`: Example JSON files.
-        - `amber_forecast.json`: Example Amber forecast data.
-        - `tesla_tou.json`: Example Tesla TOU settings.
+- `Dockerfile`: Container build with LXC-friendly init support.
+- `lxc-init.sh`: PID 1 entrypoint for Proxmox/LXC and Docker.
+- `lxc-services.sh`: Starts and monitors cron plus the OAuth server.
+- `crontab`: Schedule for the price updater job.
+- `run.sh`: Wrapper that loads `.env` and runs the updater worker.
+- `servers/oauth_server.py`: Tesla OAuth callback server.
+- `workers/price_updater.py`: Main price update workflow.
+
+## Native Proxmox LXC Build With distrobuilder
+
+This repository includes `globird-distrobuilder.yaml` for building a native Debian rootfs for Proxmox without converting from Docker.
+
+Install distrobuilder and build a root filesystem tarball:
+
+```bash
+sudo distrobuilder build-dir --with-post-files globird-distrobuilder.yaml rootfs
+sudo tar -C rootfs -caf globird-rootfs.tar.xz .
+```
+
+You can also build an LXC image layout directly:
+
+```bash
+sudo distrobuilder build-lxc globird-distrobuilder.yaml
+```
+
+That usually produces `rootfs.tar.xz` plus LXC metadata. For Proxmox, the plain rootfs tarball is typically the most convenient artifact.
+
+Example Proxmox import flow:
+
+```bash
+scp globird-rootfs.tar.xz root@YOUR-PROXMOX:/var/lib/vz/template/cache/
+pct create 121 local:vztmpl/globird-rootfs.tar.xz --hostname globird --rootfs local-lvm:8
+pct start 121
+```
+
+If you want a debug CT that always stays alive, edit `/etc/profile.d/globird-init-mode.sh` in the built rootfs or set `LXC_INIT_MODE=sleep` before starting `/sbin/init`.
+
+Note: this build copies the repository `.env` file into `/app/.env`, matching the Docker image behavior. Replace that file before building if you do not want secrets baked into the image.
+

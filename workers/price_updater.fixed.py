@@ -11,7 +11,6 @@ from datetime import date, datetime, time, timedelta
 from typing import List
 
 from dateutil import tz
-from dotenv import load_dotenv
 
 from amber_client import AmberClient
 from app_logger import logger
@@ -28,8 +27,6 @@ from tesla_tou_settings import (
     TouPeriodContainer,
 )
 from tesla_client import TeslaClient
-
-load_dotenv('/app/.env')
 
 
 class PowerwallPriceUpdater:

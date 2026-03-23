@@ -1,0 +1,88 @@
+image:
+  distribution: debian
+  release: bookworm
+  architecture: amd64
+
+source:
+  downloader: debootstrap
+  variant: minbase
+  suite: bookworm
+  url: http://deb.debian.org/debian
+
+packages:
+  manager: apt
+  update: true
+  cleanup: true
+  sets:
+    - action: install
+      packages:
+        - ca-certificates
+        - cron
+        - curl
+        - dash
+        - python3
+        - python3-pip
+        - python3-venv
+        - tzdata
+
+files:
+  - generator: copy
+    source: requirements.txt
+    path: /app/requirements.txt
+
+  - generator: copy
+    source: crontab
+    path: /app/crontab
+
+  - generator: copy
+    source: run.sh
+    path: /app/run.sh
+
+  - generator: copy
+    source: lxc-init.sh
+    path: /sbin/init
+
+  - generator: copy
+    source: lxc-services.sh
+    path: /app/lxc-services.sh
+
+  - generator: copy
+    source: servers
+    path: /app/servers/
+
+  - generator: copy
+    source: workers
+    path: /app/workers/
+
+  - generator: copy
+    source: .env
+    path: /app/.env
+
+  - generator: dump
+    path: /etc/timezone
+    content: |
+      Australia/Sydney
+
+  - generator: dump
+    path: /etc/profile.d/globird-init-mode.sh
+    mode: "0644"
+    content: |
+      export LXC_INIT_MODE=${LXC_INIT_MODE:-services}
+
+actions:
+  - trigger: post-files
+    action: |-
+      set -eux
+      mkdir -p /app/auth /var/log
+      sed -i 's/\r$//' /app/run.sh /app/lxc-services.sh /sbin/init /app/crontab /app/.env
+      chmod +x /app/run.sh /app/lxc-services.sh /sbin/init
+      ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
+      : > /var/log/cron.log
+
+  - trigger: post-packages
+    action: |-
+      set -eux
+      python3 -m pip install --break-system-packages --no-cache-dir -r /app/requirements.txt
+      crontab /app/crontab
+
+
