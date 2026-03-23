@@ -72,6 +72,7 @@ files:
 actions:
   - trigger: post-files
     action: |-
+      #!/bin/sh
       set -eux
       mkdir -p /app/auth /var/log
       sed -i 's/\r$//' /app/run.sh /app/lxc-services.sh /sbin/init /app/crontab /app/.env
@@ -81,8 +82,10 @@ actions:
 
   - trigger: post-packages
     action: |-
+      #!/bin/sh
       set -eux
       python3 -m pip install --break-system-packages --no-cache-dir -r /app/requirements.txt
       crontab /app/crontab
+
 
 
