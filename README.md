@@ -72,11 +72,7 @@ Build a debug image that simply stays alive:
 docker build --build-arg LXC_INIT_MODE=sleep -t tsla-pw-price-updater:sleep .
 ```
 
-In normal mode the container init script:
-- loads `/app/.env`
-- starts the Flask OAuth server on port `9090`
-- starts cron in foreground mode
-- keeps PID 1 alive while both services are healthy
+In normal mode the container init script starts `lxc-services.sh` as a child process, waits on it as PID 1, starts the Flask OAuth server on port `9090`, starts cron in foreground mode, and keeps container logs in `/var/log/container-init.log`.
 
 The cron job defined in `crontab` runs `/app/run.sh`, which executes `workers/price_updater.py` and appends output to `/var/log/cron.log`.
 
@@ -119,5 +115,7 @@ pct start 121
 
 If you want a debug CT that always stays alive, edit `/etc/profile.d/globird-init-mode.sh` in the built rootfs or set `LXC_INIT_MODE=sleep` before starting `/sbin/init`.
 
-Note: this build copies the repository `.env` file into `/app/.env`, matching the Docker image behavior. Replace that file before building if you do not want secrets baked into the image.
+Note: the distrobuilder image does not require `.env` to be baked in. You can copy `/app/.env` into the CT after creation if you prefer to keep secrets out of the rootfs tarball.
+
+
 

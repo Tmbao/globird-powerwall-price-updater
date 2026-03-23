@@ -54,10 +54,6 @@ files:
     source: workers
     path: /app/workers/
 
-  - generator: copy
-    source: .env
-    path: /app/.env
-
   - generator: dump
     path: /etc/timezone
     content: |
@@ -75,10 +71,12 @@ actions:
       #!/bin/sh
       set -eux
       mkdir -p /app/auth /var/log
-      sed -i 's/\r$//' /app/run.sh /app/lxc-services.sh /sbin/init /app/crontab /app/.env
+      sed -i 's/\\r$//' /app/run.sh /app/lxc-services.sh /sbin/init /app/crontab
+      if [ -f /app/.env ]; then sed -i 's/\\r$//' /app/.env; fi
       chmod +x /app/run.sh /app/lxc-services.sh /sbin/init
       ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
       : > /var/log/cron.log
       python3 -m pip install --break-system-packages --no-cache-dir -r /app/requirements.txt
       crontab /app/crontab
+
 
