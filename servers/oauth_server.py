@@ -33,7 +33,7 @@ def oauth_redirect():
 
     print(f"Received OAuth code: {code}")
 
-    refresh_token, _ = exchange_refresh_token(code)
+    _, refresh_token = exchange_refresh_token(code)
 
     if code:
         file_path = os.path.join(AUTH_DIR, "tesla_refresh_token.txt")

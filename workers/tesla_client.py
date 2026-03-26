@@ -165,6 +165,7 @@ class TeslaClient:
         data = {
             "grant_type": "refresh_token",
             "client_id": self.client_id,
+            "client_secret": self.client_secret,
             "refresh_token": refresh_token,
         }
         logger.debug(f"Exchanging for tokens with data: {data} and headers: {headers}")
