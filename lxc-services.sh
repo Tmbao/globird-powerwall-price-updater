@@ -5,6 +5,9 @@ mkdir -p /app/auth /var/log
 : > /var/log/cron.log
 
 # Bring up the container interface when we are not using systemd as PID 1.
+if command -v ip >/dev/null 2>&1; then
+  ip link set eth0 up 2>/dev/null || true
+fi
 if command -v ifup >/dev/null 2>&1; then
   ifup eth0 2>/dev/null || true
 fi

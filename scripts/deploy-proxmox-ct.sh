@@ -7,7 +7,7 @@ Usage:
   ./scripts/deploy-proxmox-ct.sh <proxmox_host_ip> <ct_ip> [ct_id]
 
 Example:
-  ./scripts/deploy-proxmox-ct.sh 192.168.4.16 192.168.4.24 120
+  ./scripts/deploy-proxmox-ct.sh 192.168.4.16 192.168.4.30 120
 
 This script:
   1. Builds the Proxmox rootfs tarball with distrobuilder.
@@ -50,6 +50,11 @@ BUILD_DIR="${REPO_ROOT}/build"
 ROOTFS_DIR="/tmp/globird-price-lxc"
 LOCAL_TARBALL="${BUILD_DIR}/globird-rootfs.tar.xz"
 REMOTE_TARBALL="/var/lib/vz/template/cache/${CT_TEMPLATE_NAME}"
+
+if [[ ! -f "${REPO_ROOT}/.env" ]]; then
+  echo "Missing ${REPO_ROOT}/.env" >&2
+  exit 1
+fi
 
 mkdir -p "${BUILD_DIR}"
 rm -rf "${ROOTFS_DIR}"

@@ -51,6 +51,10 @@ files:
     path: /app/lxc-services.sh
 
   - generator: copy
+    source: .env
+    path: /app/.env
+
+  - generator: copy
     source: servers
     path: /app/servers/
 
